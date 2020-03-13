@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+		<settings>
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    
+    <typeAliases>
+		<!-- <typeAlias type="com.codepresso.member.vo.MemberVO"  alias="memberVO" /> -->
+		<typeAlias type="codepresso.shop.vo.returnvo.BasketItemReturnVO" alias="basketItemReturnVO" />
+		<typeAlias type="codepresso.shop.vo.returnvo.ProdMainInfoResultVO" alias="prodMainInfoResultVO" />
+		<typeAlias type="codepresso.shop.vo.returnvo.ResultVO" alias="resultVO" />
+		
+		<typeAlias type="codepresso.shop.vo.AnnounceVO" alias="announceVO" />
+		<typeAlias type="codepresso.shop.vo.BasketVO" alias="basketVO" />
+		<typeAlias type="codepresso.shop.vo.ProdDetailVO" alias="prodDetailVO" />
+		<typeAlias type="codepresso.shop.vo.ProdVO" alias="prodVO" />
+		<typeAlias type="codepresso.shop.vo.UserVO" alias="userVO" />
+
+    </typeAliases>
+    
+    <mappers>
+    	<mapper resource = "mybatis/mapper/basket.xml"/>
+    	<mapper resource = "mybatis/mapper/product.xml"/>
+    	<mapper resource = "mybatis/mapper/user.xml"/>
+    	<mapper resource = "mybatis/mapper/util.xml"/>
+    </mappers>
+  
+
+</configuration>
