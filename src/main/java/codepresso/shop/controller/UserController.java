@@ -54,7 +54,7 @@ public class UserController {
 		
 	}
 	
-	//4) 로그인 api
+	//4) 로그인 api ..
 	@PostMapping("/user/login")
 	public ResultVO login(
 			@RequestBody UserVO uservo

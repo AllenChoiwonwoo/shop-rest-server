@@ -43,6 +43,10 @@ public class UserDAO {
 		return sqlsession.update(mapper+"insertTokenToUser", uservo);
 		
 	}
+	public int selectOneUserByToken(String token) {
+		return sqlsession.selectOne(mapper+"selectOneUserByToken", token);
+		
+	}
 	
 
 

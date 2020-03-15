@@ -27,5 +27,8 @@
 		token = #{token}
 		where email= #{email}
 	</update>
+	<select id="selectOneUserByToken" parameterType="String">
+		select id from user where token= #{token}
+	</select>
 
 </mapper>
