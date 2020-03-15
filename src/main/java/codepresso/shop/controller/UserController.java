@@ -29,6 +29,11 @@ public class UserController {
 	ResultVO resultVo;
 	
 	public static Logger logger = LoggerFactory.getLogger(UserController.class);
+	/*
+	 * @GetMapping("/post") public ResponseResult
+	 * findPostsAndUser(@CookieValue(value = "accesstoken", required = false) String
+	 * accesstoken)
+	 */
 	
 //	@RequestMapping(value = "/user", method = RequsetMethod.POST)
 	// 2) 회원가입 api
@@ -36,22 +41,9 @@ public class UserController {
 	public ResultVO joinUser(
 			@RequestBody UserVO uservo) throws Exception {
 		logger.info("joinUser, 호출됨");
-//		System.out.println(uservo.getPasswordConfirm());
-//		if(!(uservo.getPasswordConfirm()).equals(uservo.getPassword())){
-//			logger.info("joinUser, passwordconfirm = "+uservo.getPasswordConfirm()+
-//					", password = "+ uservo.getPassword());
-//			ShopRestServerApplication.errorResultVO.setMessage("비밀번호가 일치하지 않습니다");
-//			return ShopRestServerApplication.errorResultVO;//에러
-//		}
-		return userService.addUser(uservo);
 
+		return userService.addUser(uservo);
 	}
-	/*
-	 * @GetMapping("/post") public ResponseResult
-	 * findPostsAndUser(@CookieValue(value = "accesstoken", required = false) String
-	 * accesstoken)
-	 */
-	
 	//3) 아이디 중복 확인api
 	@GetMapping("/user/emailConfirm")
 	public ResultVO emailConfirm(
@@ -60,6 +52,15 @@ public class UserController {
 			ResultVO resultvo = userService.checkEmail(email);
 		return resultvo;
 		
+	}
+	
+	//4) 로그인 api
+	@PostMapping("/user/login")
+	public ResultVO login(
+			@RequestBody UserVO uservo
+			) throws Exception{
+		logger.info("login, 호출됨");
+		return userService.login(uservo);
 	}
 	
 			

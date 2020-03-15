@@ -14,5 +14,18 @@
 	<select id="selectOneEmail" parameterType="String" resultType="String">
 		select email from user where email= #{email}
 	</select>
+	
+	<select id="checkEmailAndPassword" parameterType="userVO" resultType="userVO" >
+		<![CDATA[
+			select id , token
+			from user
+			where email=#{email} and password= #{password}
+		]]>
+	</select>
+	<update id="insertTokenToUser" parameterType="userVO">
+		update user set
+		token = #{token}
+		where email= #{email}
+	</update>
 
 </mapper>

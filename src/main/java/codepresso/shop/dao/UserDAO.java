@@ -31,6 +31,18 @@ public class UserDAO {
 		}
 		
 	}
+
+	public UserVO login(UserVO uservo) {
+		// TODO Auto-generated method stub
+		UserVO resultUserVO = sqlsession.selectOne(mapper+"checkEmailAndPassword", uservo);
+		return resultUserVO;
+	}
+
+	public int insertTokenToUser(UserVO uservo) {
+		// TODO Auto-generated method stub
+		return sqlsession.update(mapper+"insertTokenToUser", uservo);
+		
+	}
 	
 
 

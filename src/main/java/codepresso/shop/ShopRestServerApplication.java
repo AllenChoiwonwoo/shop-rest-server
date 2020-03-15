@@ -25,8 +25,8 @@ public class ShopRestServerApplication {
 	}
 	public static ResultVO returnError(Object obj) {
 		ResultVO rvo = new ResultVO();
-		rvo.setCode(200);
-		rvo.setMessage("Success");
+		rvo.setCode(500);
+		rvo.setMessage("Fail");
 		rvo.setData(obj);
 		return rvo;
 	}
