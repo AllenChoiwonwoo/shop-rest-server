@@ -49,11 +49,5 @@ public class UserDAO {
 		
 	}
 
-	public int deleteOneProdFromBasket(BasketVO basketvo) {
-		// TODO Auto-generated method stub
-		return sqlsession.delete(mapper+"deleteOneProdFromBasket", basketvo);
-	}
-	
-
 
 }
