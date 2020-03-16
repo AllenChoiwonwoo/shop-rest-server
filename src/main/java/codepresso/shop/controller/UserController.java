@@ -1,5 +1,8 @@
 package codepresso.shop.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,9 +60,10 @@ public class UserController {
 	//4) 로그인 api ..
 	@PostMapping("/user/login")
 	public ResultVO login(
-			@RequestBody UserVO uservo
+			@RequestBody UserVO uservo,HttpServletRequest request, HttpServletResponse response
 			) throws Exception{
 		logger.info("login, 호출됨");
+		
 		return userService.login(uservo);
 	}
 	

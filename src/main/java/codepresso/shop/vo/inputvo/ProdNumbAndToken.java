@@ -9,4 +9,5 @@ public class ProdNumbAndToken {
 	private String accesstoken;
 	private int lastProdId;
 	private int userid;
+	private int prodid;
 }

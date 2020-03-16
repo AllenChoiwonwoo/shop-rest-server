@@ -55,4 +55,20 @@ public class ProdContoller {
 		 * prodnumbntoken.setAccesstoken(accesstoken); ////
 		 * prodnumbntoken.setLastProdId(lastPordId); return null; }
 		 */
+	//8) 상품 상세페이지
+	@RequestMapping(value = "/prod/detail", method=RequestMethod.GET)
+	public ResultVO getProdDetail(
+//			@PathVariable("prodid") int prodId,
+//			@RequestHeader(value="accesstoken", required=false) String accesstoken,
+			@RequestParam int prodId
+			) {
+		logger.info("getProdDetail, prodId = "+prodId+"prodId" );
+		ProdNumbAndToken prodNumbAndToken = new ProdNumbAndToken();
+//		prodNumbAndToken.setAccesstoken(accesstoken);
+		prodNumbAndToken.setProdid(prodId);
+		return prodservice.getProdDetail(prodNumbAndToken);
+	}
+	
+	
+	
 }

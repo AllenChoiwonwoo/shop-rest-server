@@ -14,7 +14,8 @@ import lombok.ToString;
 @Component
 public class BasketVO {
 	private int id;
-	private int order;
-	private String content;
+	private int prodId;
+	private int userId;
+	private int prodVolume;
 	private Date createdAt;
 }

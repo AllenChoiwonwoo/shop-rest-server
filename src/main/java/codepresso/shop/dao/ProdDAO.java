@@ -36,6 +36,16 @@ public class ProdDAO {
 		return sqlsession.selectList(mapper+"selectProdList", lastProdId);
 //		return null;
 	}
+//	public List<Object> selectOneProdDetailWithUserid(ProdNumbAndToken prodNumbAndToken) {
+//		// TODO Auto-generated method stub
+//		return sqlsession.selectList(mapper+"selectOneProdDetailWithUserid", prodNumbAndToken);
+//		
+//	}
+	public List<ProdDetailVO> selectOneProdDetail(int prodid) {
+		// TODO Auto-generated method stub
+		List<ProdDetailVO> detailList = sqlsession.selectList(mapper+"selectProdDetailList", prodid);
+		return detailList;
+	}
 	
 	
 

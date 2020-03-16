@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import codepresso.shop.vo.BasketVO;
 import codepresso.shop.vo.UserVO;
 
 @Repository
@@ -46,6 +47,11 @@ public class UserDAO {
 	public int selectOneUserByToken(String token) {
 		return sqlsession.selectOne(mapper+"selectOneUserByToken", token);
 		
+	}
+
+	public int deleteOneProdFromBasket(BasketVO basketvo) {
+		// TODO Auto-generated method stub
+		return sqlsession.delete(mapper+"deleteOneProdFromBasket", basketvo);
 	}
 	
 

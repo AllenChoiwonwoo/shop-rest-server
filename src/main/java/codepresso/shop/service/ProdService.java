@@ -44,7 +44,13 @@ public class ProdService {
 		HashMap hashMap =new HashMap();
 		hashMap.put("userid", prodnumbntoken.getUserid());
 		hashMap.put("data", prodlist);
-		return ShopRestServerApplication.returnSuccess(prodlist);
+		return ShopRestServerApplication.returnSuccess(hashMap);
+	}
+	public ResultVO getProdDetail(ProdNumbAndToken prodNumbAndToken) {
+		// TODO Auto-generated method stub
+		List<ProdDetailVO> detailList = proddao.selectOneProdDetail(prodNumbAndToken.getProdid());
+		ResultVO resultvo = ShopRestServerApplication.returnSuccess(detailList);
+		return resultvo;
 	}
 	
 	

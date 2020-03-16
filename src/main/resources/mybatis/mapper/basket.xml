@@ -2,4 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mybatis.mapper.basket">
 
+<insert id="insertOneProdToBasket" parameterType="basketVO">
+	<![CDATA[
+		insert into basket 
+		(prodId, userId, prodVolume ) 
+		values
+		(#{prodId}, #{userId}, #{prodVolume})
+	]]>
+</insert>
+
+<select id="selectAllProdFromUserBasket" parameterType="int" resultType="basketItemReturnVO">
+	select 
+	b.id as id, b.prodId as prodId, b.userId as userId, p.name as name, p.mainImg as mainImg,
+	p.price as prodPrice, p.salePrice as prodSalePrice, b.prodVolume as prodVolume, b.createdAt as createdAt
+	from basket as b
+	join production as p
+	on b.prodId = p.id
+	where userId = #{userid}
+	order by b.createdAt desc
+</select>
+
+<delete id="deleteOneProdFromBasket" parameterType="basketVO">
+	delete from basket
+	where userid = #{userId} and id = #{id}
+</delete>
+
 </mapper>
