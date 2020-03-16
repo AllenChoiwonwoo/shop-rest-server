@@ -2,4 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mybatis.mapper.product">
 
+	<select id="selectProdListWithBasketDelimiter" parameterType="prodNumbAndToken" resultType="prodVO">
+		<![CDATA[
+			select 
+	p.id id, p.name `name`, p.mainImg mainImg, p.desc `desc`, 
+	p.price price, p.salePrice salePrice, 
+	p.createdAt createdAt, b.userId = #{userid} as isInBasket 
+	from production as p
+	left outer join basket as b
+	on p.id = b.prodId
+	limit 6
+	offset #{lastProdId}
+	
+		]]>	
+	</select>
+	
+	<select id="selectProdList" parameterType="int" resultType="prodVO">
+		<![CDATA[
+		select
+			`id`, `name`, `mainImg`, `desc`, `price`, `salePrice`, `createdAt`
+		from production
+		limit 6
+		offset #{lastProdId}
+		]]>
+		
+	</select>
 </mapper>

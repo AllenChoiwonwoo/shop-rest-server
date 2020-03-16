@@ -20,5 +20,6 @@ public class ProdVO {
 	private int price;
 	private int salePrice;
 	private Date createdAt;
+	private boolean isInBasket = false;
 	
 }

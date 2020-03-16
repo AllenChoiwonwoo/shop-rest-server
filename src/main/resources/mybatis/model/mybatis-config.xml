@@ -12,6 +12,8 @@
 		<typeAlias type="codepresso.shop.vo.returnvo.ProdMainInfoResultVO" alias="prodMainInfoResultVO" />
 		<typeAlias type="codepresso.shop.vo.returnvo.ResultVO" alias="resultVO" />
 		
+		<typeAlias type="codepresso.shop.vo.inputvo.ProdNumbAndToken" alias="prodNumbAndToken"/>
+		
 		<typeAlias type="codepresso.shop.vo.AnnounceVO" alias="announceVO" />
 		<typeAlias type="codepresso.shop.vo.BasketVO" alias="basketVO" />
 		<typeAlias type="codepresso.shop.vo.ProdDetailVO" alias="prodDetailVO" />

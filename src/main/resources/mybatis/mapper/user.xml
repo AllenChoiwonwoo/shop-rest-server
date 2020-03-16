@@ -27,7 +27,7 @@
 		token = #{token}
 		where email= #{email}
 	</update>
-	<select id="selectOneUserByToken" parameterType="String">
+	<select id="selectOneUserByToken" parameterType="String" resultType="int">
 		select id from user where token= #{token}
 	</select>
 
