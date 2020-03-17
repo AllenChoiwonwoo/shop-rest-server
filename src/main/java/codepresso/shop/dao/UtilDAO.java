@@ -16,7 +16,6 @@ public class UtilDAO {
 	SqlSession sqlsession;
 
 	public List<AnnounceVO> selectAnnounces() {
-		// TODO Auto-generated method stub
 		List<AnnounceVO> volist = sqlsession.selectList(mapper+"selectAnnounces");
 		return volist;
 	}

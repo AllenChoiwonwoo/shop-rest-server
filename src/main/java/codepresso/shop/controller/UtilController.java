@@ -1,16 +1,12 @@
 package codepresso.shop.controller;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import codepresso.shop.service.UtilService;
-import codepresso.shop.vo.AnnounceVO;
 import codepresso.shop.vo.returnvo.ResultVO;
 
 @RestController
@@ -25,6 +21,5 @@ public class UtilController {
 	public ResultVO getAnnounce() throws Exception{
 			logger.info("getAnnounce, 호출됨");
 			return utilService.getAllAnnouces();
-		
 	}
 }

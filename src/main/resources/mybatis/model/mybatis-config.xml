@@ -9,10 +9,10 @@
     <typeAliases>
 		<!-- <typeAlias type="com.codepresso.member.vo.MemberVO"  alias="memberVO" /> -->
 		<typeAlias type="codepresso.shop.vo.returnvo.BasketItemReturnVO" alias="basketItemReturnVO" />
-		<typeAlias type="codepresso.shop.vo.returnvo.ProdMainInfoResultVO" alias="prodMainInfoResultVO" />
+<!-- 		<typeAlias type="codepresso.shop.vo.returnvo.ProdMainInfoResultVO" alias="prodMainInfoResultVO" /> -->
 		<typeAlias type="codepresso.shop.vo.returnvo.ResultVO" alias="resultVO" />
 		
-		<typeAlias type="codepresso.shop.vo.inputvo.ProdNumbAndToken" alias="prodNumbAndToken"/>
+		<typeAlias type="codepresso.shop.vo.inputvo.ProdNumbAndTokenVO" alias="prodNumbAndTokenVO"/>
 		
 		<typeAlias type="codepresso.shop.vo.AnnounceVO" alias="announceVO" />
 		<typeAlias type="codepresso.shop.vo.BasketVO" alias="basketVO" />

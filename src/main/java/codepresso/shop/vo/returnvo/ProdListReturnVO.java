@@ -1,9 +1,10 @@
 package codepresso.shop.vo.returnvo;
 
-import java.sql.Date;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import codepresso.shop.vo.ProdVO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,12 +13,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @Component
-public class ProdMainInfoResultVO {
-	private int id;
-	private String name;
-	private String desc;
-	private int price;
-	private int salePrice;
-	private Date createdAt;
+public class ProdListReturnVO {
+	private int userId;
+	private List<ProdVO> prodListData;
 
 }

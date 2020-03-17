@@ -1,18 +1,13 @@
 package codepresso.shop.service;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Random;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import codepresso.shop.ShopRestServerApplication;
-import codepresso.shop.controller.UserController;
 import codepresso.shop.dao.UserDAO;
 import codepresso.shop.vo.UserVO;
 import codepresso.shop.vo.returnvo.ResultVO;
@@ -71,7 +66,6 @@ public class UserService {
 		cal.set(Calendar.MILLISECOND, 0);
 		cal.add(Calendar.YEAR, -7);
 		java.sql.Date sqlDate = new java.sql.Date(cal.getTime().getTime()); // your sql date
-		System.out.println("sqlDate:" + sqlDate);
 		
 		int compare = uservo.getBirth().compareTo(sqlDate);
 		if(compare < 0 ) {
@@ -93,10 +87,8 @@ public class UserService {
 	}
 
 	public ResultVO login(UserVO uservo) throws Exception{
-		// TODO Auto-generated method stub
-		// 로그인후, 토큰 발행하는 메서드 실행후 토큰 받아서 db에 넣는다 ㅡ, 정상입력되면 토큰값을 넣어서 return 한다.
+		// 1. 로그인(아이디비번체크) , 2.토큰체크(없으면 발행) , 2-1.발행한 토큰 저장, 3.결과값 반환
 		UserVO resultUserVO;
-		int userid;
 		try { // 아이디 비번 체크
 			resultUserVO = userDao.login(uservo);
 			logger.info("login , userid = "+resultUserVO.getId());

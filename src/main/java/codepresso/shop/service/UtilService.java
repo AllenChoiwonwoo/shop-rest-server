@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import codepresso.shop.ShopRestServerApplication;
-import codepresso.shop.controller.UtilController;
 import codepresso.shop.dao.UtilDAO;
 import codepresso.shop.vo.AnnounceVO;
 import codepresso.shop.vo.returnvo.ResultVO;
@@ -21,7 +20,6 @@ public class UtilService {
 	UtilDAO utilDao;
 
 	public ResultVO getAllAnnouces() {
-		// TODO Auto-generated method stub
 		List<AnnounceVO> resultList = utilDao.selectAnnounces();
 		return ShopRestServerApplication.returnSuccess(resultList);
 	}

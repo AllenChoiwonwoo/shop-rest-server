@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mybatis.mapper.product">
 
-	<select id="selectProdListWithBasketDelimiter" parameterType="prodNumbAndToken" resultType="prodVO">
+	<select id="selectProdListWithBasketDelimiter" parameterType="prodNumbAndTokenVO" resultType="prodVO">
 		<![CDATA[
 			select 
 	p.id id, p.name `name`, p.mainImg mainImg, p.desc `desc`, 
