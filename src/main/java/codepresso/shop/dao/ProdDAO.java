@@ -33,6 +33,11 @@ public class ProdDAO {
 		List<ProdDetailVO> detailList = sqlsession.selectList(mapper+"selectProdDetailList", prodid);
 		return detailList;
 	}
+	public ProdVO selectOneProdMainInfo(ProdNumbAndTokenVO prodnumbntoken) {
+		logger.info(prodnumbntoken.getProdid() +" , userid ; "+ prodnumbntoken.getUserid());
+		return sqlsession.selectOne(mapper+"selectOneProdMainInfo", prodnumbntoken);
+		
+	}
 	
 	
 

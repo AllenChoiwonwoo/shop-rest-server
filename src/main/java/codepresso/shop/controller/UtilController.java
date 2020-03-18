@@ -17,7 +17,7 @@ public class UtilController {
 	UtilService utilService;
 	
 	//6) 공지 가져오기
-	@GetMapping("/util/announce")
+	@GetMapping("/announce")
 	public ResultVO getAnnounce() throws Exception{
 			logger.info("getAnnounce, 호출됨");
 			return utilService.getAllAnnouces();

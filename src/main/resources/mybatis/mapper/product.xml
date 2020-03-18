@@ -5,14 +5,14 @@
 	<select id="selectProdListWithBasketDelimiter" parameterType="prodNumbAndTokenVO" resultType="prodVO">
 		<![CDATA[
 			select 
-	p.id id, p.name `name`, p.mainImg mainImg, p.desc `desc`, 
-	p.price price, p.salePrice salePrice, 
-	p.createdAt createdAt, b.userId = #{userid} as isInBasket 
-	from production as p
-	left outer join basket as b
-	on p.id = b.prodId
-	limit 6
-	offset #{lastProdId}
+				p.id id, p.name `name`, p.mainImg mainImg, p.desc `desc`, 
+				p.price price, p.salePrice salePrice, 
+				p.createdAt createdAt, b.userId = #{userid} as isInBasket 
+			from production as p
+				left outer join basket as b
+					on p.id = b.prodId
+			limit 6
+			offset #{lastProdId}
 	
 		]]>	
 	</select>
@@ -28,7 +28,24 @@
 		
 	</select>
 	<select id="selectProdDetailList" parameterType="int" resultType="prodDetailVO">
-		select * from prodDetail where prodId = #{prodid}
+		select * from prodDetail where prodId = #{prodid} order by `order` asc
+	</select>
+	
+	<select id="selectOneProdMainInfo" parameterType="prodNumbAndTokenVO" resultType="prodVO">
+	<![CDATA[
+	select 
+		p.id id, p.name name, p.mainImg mainImg, p.desc `desc`, p.price price,
+		 p.salePrice salePrice, p.createdAt createdAt
+		  , ifnull( 
+		  		(select id from basket where prodId=#{prodid} and userId=#{userid})
+		  		 ,0) 
+		  		 	> 0 as isInBasket
+	 from production p
+	 where p.id = #{prodid}
+	 
+
+	]]>
+
 	</select>
 
 </mapper>

@@ -46,10 +46,25 @@ public class ProdService {
 		prodListReturnVO.setProdListData(prodlist);
 		return ShopRestServerApplication.returnSuccess(prodListReturnVO);
 	}
+	
 	public ResultVO getProdDetail(ProdNumbAndTokenVO prodNumbAndTokenVO) {
 		List<ProdDetailVO> detailList = proddao.selectOneProdDetail(prodNumbAndTokenVO.getProdid());
 		ResultVO resultvo = ShopRestServerApplication.returnSuccess(detailList);
 		return resultvo;
+	}
+	
+	public ResultVO getMainProdDetailInfo(ProdNumbAndTokenVO prodnumbntoken) {
+		// TODO Auto-generated method stub
+		int userid;
+		if(prodnumbntoken.getAccesstoken() != null) {
+			userid = userdao.selectOneUserByToken(prodnumbntoken.getAccesstoken());
+		}else {
+			userid = 0;
+		}
+		prodnumbntoken.setUserid(userid);
+		ProdVO prodVO = proddao.selectOneProdMainInfo(prodnumbntoken);
+		return ShopRestServerApplication.returnSuccess(prodVO);
+//		return null;
 	}
 	
 	
